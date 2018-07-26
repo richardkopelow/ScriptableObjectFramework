@@ -1,32 +1,35 @@
-public abstract class BaseValue<T, Y>
-    where Y : BaseVariable<T>
+namespace ScriptableObjectFramework
 {
-    public T NormalValue;
-    public Y SOValue;
-    public bool UseNormal;
-
-    public T Value
+    public abstract class BaseValue<T, Y>
+        where Y : BaseVariable<T>
     {
-        get
+        public T NormalValue;
+        public Y SOValue;
+        public bool UseNormal;
+
+        public T Value
         {
-            if (UseNormal || SOValue == null)
+            get
             {
-                return NormalValue;
+                if (UseNormal || SOValue == null)
+                {
+                    return NormalValue;
+                }
+                else
+                {
+                    return SOValue.Value;
+                }
             }
-            else
+            set
             {
-                return SOValue.Value;
-            }
-        }
-        set
-        {
-            if (UseNormal || SOValue == null)
-            {
-                NormalValue = value;
-            }
-            else
-            {
-                SOValue.Value = value;
+                if (UseNormal || SOValue == null)
+                {
+                    NormalValue = value;
+                }
+                else
+                {
+                    SOValue.Value = value;
+                }
             }
         }
     }

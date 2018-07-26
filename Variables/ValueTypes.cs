@@ -1,3 +1,4 @@
+using ScriptableObjectFramework;
 using System;
 using UnityEngine;
 

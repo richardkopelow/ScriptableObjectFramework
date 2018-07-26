@@ -1,4 +1,7 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewIntVariable", menuName = "Scriptable Objects/Variables/Int")]
-public class IntVariable:BaseVariable<int>{}
+namespace ScriptableObjectFramework
+{
+    [CreateAssetMenu(fileName = "NewIntVariable", menuName = "Scriptable Objects/Variables/Int")]
+    public class IntVariable : BaseVariable<int> { } 
+}
