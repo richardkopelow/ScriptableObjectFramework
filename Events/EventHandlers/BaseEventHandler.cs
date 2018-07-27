@@ -12,7 +12,10 @@ namespace ScriptableObjectFramework
 
         public void HandleEvent(T arg)
         {
-            OnTrigger.Invoke(arg);
+            if (gameObject.activeInHierarchy)
+            {
+                OnTrigger.Invoke(arg);
+            }
         }
 
         private void OnEnable()
