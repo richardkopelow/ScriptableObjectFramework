@@ -17,18 +17,12 @@ namespace ScriptableObjectFramework
 
         private void OnEnable()
         {
-            if (Event != null)
-            {
-                Event.Register(this);
-            }
+            Event?.Register(this);
         }
 
         private void OnDisable()
         {
-            if (Event != null)
-            {
-                Event.Deregister(this);
-            }
+            Event?.Deregister(this);
         }
     }
 }
