@@ -15,7 +15,7 @@ namespace ScriptableObjectFramework
         public Y SOBacking;
         public Z Handler;
 
-        public void Raise(T arg)
+        public void Fire(T arg)
         {
             if (UseHandler)
             {
@@ -23,7 +23,7 @@ namespace ScriptableObjectFramework
             }
             else
             {
-                SOBacking?.Raise(arg);
+                SOBacking?.Fire(arg);
             }
         }
     }

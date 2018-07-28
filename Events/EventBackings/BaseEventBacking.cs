@@ -8,7 +8,7 @@ namespace ScriptableObjectFramework
     {
         private List<IEventHandler<T>> handlers = new List<IEventHandler<T>>();
 
-        public void Raise(T arg)
+        public void Fire(T arg)
         {
             for (int i = handlers.Count - 1; i >= 0; i--)
             {
