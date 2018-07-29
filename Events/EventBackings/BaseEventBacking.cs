@@ -6,13 +6,21 @@ namespace ScriptableObjectFramework
 {
     public class BaseEventBacking<T> : ScriptableObject
     {
+        public T Value;
+
         private List<IEventHandler<T>> handlers = new List<IEventHandler<T>>();
 
         public void Fire(T arg)
         {
+            Value = arg;
+            SelfFire();
+        }
+
+        public void SelfFire()
+        {
             for (int i = handlers.Count - 1; i >= 0; i--)
             {
-                handlers[i].HandleEvent(arg);
+                handlers[i].HandleEvent(Value);
             }
         }
 
