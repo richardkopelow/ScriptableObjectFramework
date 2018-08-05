@@ -4,7 +4,15 @@ using UnityEngine;
 
 namespace ScriptableObjectFramework
 {
-    public abstract class BaseVariable<T> : ScriptableObject
+    public class BaseVariable : ScriptableObject
+    {
+        public virtual object GetValue()
+        {
+            return new object();
+        }
+    }
+    
+    public abstract class BaseVariable<T> : BaseVariable
     {
         [SerializeField]
         private bool saveInPlayMode;
@@ -29,7 +37,7 @@ namespace ScriptableObjectFramework
         [SerializeField]
         private T value;
 
-        public T Value
+        public virtual T Value
         {
             get
             {
@@ -42,6 +50,11 @@ namespace ScriptableObjectFramework
                     this.value = value;
                 }
             }
+        }
+
+        public override object GetValue()
+        {
+            return Value;
         }
 
         protected void OnEnable()
