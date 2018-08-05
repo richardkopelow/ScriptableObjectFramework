@@ -32,5 +32,10 @@ namespace ScriptableObjectFramework
                 }
             }
         }
+
+        public static implicit operator T(BaseValue<T, Y> value)
+        {
+            return value.Value;
+        }
     }
 }
