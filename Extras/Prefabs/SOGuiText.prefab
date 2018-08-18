@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114873245320807572}
   - component: {fileID: 114116122270370366}
   m_Layer: 0
-  m_Name: Score
+  m_Name: SOGuiText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
