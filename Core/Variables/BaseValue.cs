@@ -1,6 +1,8 @@
+using System.ComponentModel;
+
 namespace ScriptableObjectFramework
 {
-    public abstract class BaseValue<T, Y>
+    public abstract class BaseValue<T, Y> : IValue<T>
         where Y : BaseVariable<T>
     {
         public T NormalValue;
@@ -30,8 +32,14 @@ namespace ScriptableObjectFramework
                 {
                     SOValue.Value = value;
                 }
+                if (PropertyChanged != null)
+                {
+                    PropertyChanged(this, new PropertyChangedEventArgs("Value"));
+                }
             }
         }
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public static implicit operator T(BaseValue<T, Y> value)
         {

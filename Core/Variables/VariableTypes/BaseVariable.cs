@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
 
 namespace ScriptableObjectFramework
@@ -11,8 +12,8 @@ namespace ScriptableObjectFramework
             return new object();
         }
     }
-    
-    public abstract class BaseVariable<T> : BaseVariable
+
+    public abstract class BaseVariable<T> : BaseVariable, INotifyPropertyChanged
     {
         [SerializeField]
         private bool saveInPlayMode;
@@ -37,17 +38,24 @@ namespace ScriptableObjectFramework
         [SerializeField]
         private T value;
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
         public virtual T Value
         {
             get
             {
                 return saveInPlayMode ? value : currentValue;
             }
-            set{
+            set
+            {
                 currentValue = value;
                 if (saveInPlayMode)
                 {
                     this.value = value;
+                }
+                if (PropertyChanged != null)
+                {
+                    PropertyChanged(this, new PropertyChangedEventArgs("Value"));
                 }
             }
         }
@@ -57,7 +65,7 @@ namespace ScriptableObjectFramework
             return Value;
         }
 
-        protected void OnEnable()
+        protected virtual void OnEnable()
         {
             currentValue = value;
         }

@@ -7,7 +7,7 @@ using UnityEngine;
 namespace ScriptableObjectFramework
 {
     [Serializable]
-    public class BaseEvent<T, Y, Z>
+    public class BaseEvent<T, Y, Z> : IEvent<T>
         where Y : BaseEventBacking<T>
         where Z : IEventHandler<T>
     {

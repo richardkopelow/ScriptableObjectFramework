@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Name: Health
   m_EditorClassIdentifier: 
   saveInPlayMode: 1
-  value: 1.19
+  value: 3.16
