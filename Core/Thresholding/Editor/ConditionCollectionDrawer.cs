@@ -16,7 +16,7 @@ namespace ScriptableObjectFramework
             if (listDrawer == null || listDrawer.serializedProperty.serializedObject != property.serializedObject)
             {
                 listDrawer = new ReorderableList(property.serializedObject, property.FindPropertyRelative("conditions"));
-                //listDrawer.drawElementCallback = DrawConditions;
+                listDrawer.drawElementCallback = DrawConditions;
                 listDrawer.elementHeight = EditorGUIUtility.singleLineHeight;
             }
             listDrawer.DoList(position);
@@ -29,7 +29,8 @@ namespace ScriptableObjectFramework
 
         void DrawConditions(Rect rect, int index, bool isactive, bool isfocused)
         {
-
+            var condition = listDrawer.serializedProperty.GetArrayElementAtIndex(index);
+            EditorGUI.PropertyField(rect, condition);
         }
     }
 }

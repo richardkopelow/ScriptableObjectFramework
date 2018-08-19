@@ -8,13 +8,13 @@ namespace ScriptableObjectFramework
     [Flags]
     public enum Condition
     {
-        None = 0,
         GreaterThan = 1,
         LessThan = 2,
         EqualTo = 4,
         NotEqualTo = 8,
         GreaterOrEqualTo = 5,
-        LessOrEqualTo = 6
+        LessOrEqualTo = 6,
+        None = 0
     }
     
     public class ComparableCondition<T, Y, Z> : ICondition<T>
