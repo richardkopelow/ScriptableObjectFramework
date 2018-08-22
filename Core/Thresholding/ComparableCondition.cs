@@ -16,8 +16,8 @@ namespace ScriptableObjectFramework
         LessOrEqualTo = 6,
         None = 0
     }
-    
-    public class ComparableCondition<T, Y, Z> : ICondition<T>
+
+    public class ComparableCondition<T, Y, Z> : Condition<T>
         where T : IComparable
         where Y : IValue<T>
         where Z : IEvent<T>
@@ -28,7 +28,7 @@ namespace ScriptableObjectFramework
 
         private Condition lastState;
 
-        public void Evaluate(T value)
+        public override void Evaluate(T value)
         {
             Condition currentState = Condition.None;
             int comparison = value.CompareTo(Argument.Value);
@@ -48,7 +48,10 @@ namespace ScriptableObjectFramework
                 }
             }
 
-            Condition stateDif = currentState & ~lastState;
+            //If we only want to trigger when crossing the threshold, get the dif between the current state and the last
+            Condition stateDif = ExecutionMode == ConditionExecutionMode.OnThreshold 
+                ? currentState & ~lastState 
+                : currentState;
             if ((stateDif & Condition) != 0)
             {
                 Event.Fire(value);
