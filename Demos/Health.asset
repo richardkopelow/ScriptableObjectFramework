@@ -13,3 +13,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   saveInPlayMode: 1
   value: 3.16
+  Conditions:
+    conditions:
+    - ExecutionMode: 0
+      Condition: 6
+      Argument:
+        NormalValue: 0
+        SOValue: {fileID: 0}
+        UseNormal: 0
+      Event:
+        UseHandler: 0
+        SOBacking: {fileID: 0}
+        Handler: {fileID: 0}

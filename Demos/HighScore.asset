@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79f1462f2b0f86343b140767e0f3ccb5, type: 3}
   m_Name: HighScore
   m_EditorClassIdentifier: 
-  saveInPlayMode: 0
-  value: 0
+  saveInPlayMode: 1
+  value: 14
   Conditions:
     conditions: []

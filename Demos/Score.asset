@@ -13,3 +13,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   saveInPlayMode: 0
   value: 3
+  Conditions:
+    conditions:
+    - ExecutionMode: 1
+      Condition: 1
+      Argument:
+        NormalValue: 0
+        SOValue: {fileID: 11400000, guid: 5014f24aa6aa8984d8c2f8ebbc0cd1be, type: 2}
+        UseNormal: 0
+      Event:
+        UseHandler: 0
+        SOBacking: {fileID: 11400000, guid: 3c48a0f9485712347a95c7f5e914ef84, type: 2}
+        Handler: {fileID: 0}
