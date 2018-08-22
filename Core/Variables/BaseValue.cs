@@ -40,10 +40,5 @@ namespace ScriptableObjectFramework
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
-
-        public static implicit operator T(BaseValue<T, Y> value)
-        {
-            return value.Value;
-        }
     }
 }
