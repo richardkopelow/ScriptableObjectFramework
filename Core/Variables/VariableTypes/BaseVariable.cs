@@ -69,5 +69,10 @@ namespace ScriptableObjectFramework
         {
             currentValue = value;
         }
+
+        public static implicit operator T(BaseVariable<T> variable)
+        {
+            return variable.Value;
+        }
     }
 }
