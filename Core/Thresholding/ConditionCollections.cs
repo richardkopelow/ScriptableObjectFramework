@@ -8,4 +8,6 @@ namespace ScriptableObjectFramework
 {
     [Serializable]
     public class IntComparableConditionCollection : ConditionCollection<int, IntComparableCondition> { }
+    [Serializable]
+    public class FloatComparableConditionCollection : ConditionCollection<float, FloatComparableCondition> { }
 }

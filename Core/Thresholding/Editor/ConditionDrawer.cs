@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace ScriptableObjectFramework
 {
-    [CustomPropertyDrawer(typeof(IntComparableCondition), true)]
+    [CustomPropertyDrawer(typeof(Condition), true)]
     public class ConditionDrawer : PropertyDrawer
     {
         const float buffer = 5;

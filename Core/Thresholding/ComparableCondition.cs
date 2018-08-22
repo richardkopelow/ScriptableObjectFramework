@@ -6,7 +6,7 @@ using UnityEngine;
 namespace ScriptableObjectFramework
 {
     [Flags]
-    public enum Condition
+    public enum ComparableComparison
     {
         GreaterThan = 1,
         LessThan = 2,
@@ -22,34 +22,34 @@ namespace ScriptableObjectFramework
         where Y : IValue<T>
         where Z : IEvent<T>
     {
-        public Condition Condition;
+        public ComparableComparison Condition;
         public Y Argument;
         public Z Event;
 
-        private Condition lastState;
+        private ComparableComparison lastState;
 
         public override void Evaluate(T value)
         {
-            Condition currentState = Condition.None;
+            ComparableComparison currentState = ComparableComparison.None;
             int comparison = value.CompareTo(Argument.Value);
             if (comparison == 0)
             {
-                currentState = Condition.EqualTo;
+                currentState = ComparableComparison.EqualTo;
             }
             else
             {
                 if (comparison > 0)
                 {
-                    currentState = Condition.GreaterThan | Condition.NotEqualTo;
+                    currentState = ComparableComparison.GreaterThan | ComparableComparison.NotEqualTo;
                 }
                 else
                 {
-                    currentState = Condition.LessOrEqualTo | Condition.NotEqualTo;
+                    currentState = ComparableComparison.LessOrEqualTo | ComparableComparison.NotEqualTo;
                 }
             }
 
             //If we only want to trigger when crossing the threshold, get the dif between the current state and the last
-            Condition stateDif = ExecutionMode == ConditionExecutionMode.OnThreshold 
+            ComparableComparison stateDif = ExecutionMode == ConditionExecutionMode.OnThreshold 
                 ? currentState & ~lastState 
                 : currentState;
             if ((stateDif & Condition) != 0)
