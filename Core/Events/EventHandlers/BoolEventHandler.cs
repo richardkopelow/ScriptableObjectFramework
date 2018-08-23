@@ -1,4 +1,4 @@
 namespace ScriptableObjectFramework
 {
-    public class BoolEventHandler: BaseEventHandler<bool, BoolEventBacking, BoolUnityEvent>{}
+    public class BoolEventHandler : BaseEventHandler<bool, BoolEventBacking, BoolUnityEvent> { }
 }

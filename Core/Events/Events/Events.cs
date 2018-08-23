@@ -8,7 +8,7 @@ namespace ScriptableObjectFramework
 {
     [Serializable]
     public class BaseEvent<T, Y, Z> : IEvent<T>
-        where Y : BaseEventBacking<T>
+        where Y : IEventBacking<T>
         where Z : IEventHandler<T>
     {
         public bool UseHandler;

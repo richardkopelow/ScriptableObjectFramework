@@ -5,7 +5,8 @@ using UnityEngine;
 
 namespace ScriptableObjectFramework
 {
-    public class BaseEventInspector<T> : UnityEditor.Editor
+    [CustomEditor(typeof(BaseEventBacking), true, isFallback = true)]
+    public class BaseEventInspector : UnityEditor.Editor
     {
         public override void OnInspectorGUI()
         {
@@ -13,26 +14,8 @@ namespace ScriptableObjectFramework
 
             if (GUILayout.Button("Fire"))
             {
-                ((BaseEventBacking<T>)target).SelfFire();
+                ((BaseEventBacking)target).SelfFire();
             }
         }
     }
-
-	[CustomEditor(typeof(IntEventBacking))]
-    public class IntEventInspector : BaseEventInspector<int> { }
-
-	[CustomEditor(typeof(FloatEventBacking))]
-    public class FloatEventInspector : BaseEventInspector<float> { }
-
-	[CustomEditor(typeof(BoolEventBacking))]
-    public class BoolEventInspector : BaseEventInspector<bool> { }
-
-	[CustomEditor(typeof(StringEventBacking))]
-    public class StringEventInspector : BaseEventInspector<string> { }
-
-	[CustomEditor(typeof(Vector3EventBacking))]
-    public class Vector3EventInspector : BaseEventInspector<Vector3> { }
-
-	[CustomEditor(typeof(GameObjectEventBacking))]
-    public class GameObjectEventInspector : BaseEventInspector<GameObject> { }
 }

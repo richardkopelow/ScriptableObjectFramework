@@ -11,17 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb408a91308b7804fbb4a71e11a7db69, type: 3}
   m_Name: Health
   m_EditorClassIdentifier: 
-  saveInPlayMode: 1
-  value: 3.16
+  saveInPlayMode: 0
+  value: 1
   Conditions:
-    conditions:
-    - ExecutionMode: 0
-      Condition: 6
-      Argument:
-        NormalValue: 0
-        SOValue: {fileID: 0}
-        UseNormal: 0
-      Event:
-        UseHandler: 0
-        SOBacking: {fileID: 0}
-        Handler: {fileID: 0}
+    conditions: []

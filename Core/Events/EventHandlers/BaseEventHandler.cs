@@ -4,7 +4,7 @@ using UnityEngine.Events;
 namespace ScriptableObjectFramework
 {
     public class BaseEventHandler<T, Y, Z> : MonoBehaviour, IEventHandler<T>
-        where Y : BaseEventBacking<T>
+        where Y : BaseEventBacking<T, Z>
         where Z : UnityEvent<T>
     {
         public Y Event;

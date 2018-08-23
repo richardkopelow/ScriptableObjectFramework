@@ -1,4 +1,4 @@
 namespace ScriptableObjectFramework
 {
-    public class IntEventHandler: BaseEventHandler<int, IntEventBacking, IntUnityEvent>{}
+    public class IntEventHandler : BaseEventHandler<int, IntEventBacking, IntUnityEvent> { }
 }

@@ -1,12 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace ScriptableObjectFramework
 {
-    public class BaseEventBacking<T> : ScriptableObject
+    public abstract class BaseEventBacking : ScriptableObject
+    {
+        public abstract void SelfFire();
+    }
+
+    public class BaseEventBacking<T,Y> : BaseEventBacking, IEventBacking<T>
+        where Y: UnityEvent<T>
     {
         public T Value;
+
+        public Y OnFire;
 
         private List<IEventHandler<T>> handlers = new List<IEventHandler<T>>();
 
@@ -16,8 +25,9 @@ namespace ScriptableObjectFramework
             SelfFire();
         }
 
-        public void SelfFire()
+        public override void SelfFire()
         {
+            OnFire.Invoke(Value);
             for (int i = handlers.Count - 1; i >= 0; i--)
             {
                 handlers[i].HandleEvent(Value);
@@ -33,5 +43,5 @@ namespace ScriptableObjectFramework
         {
             handlers.Remove(handler);
         }
-    } 
+    }
 }

@@ -282,6 +282,11 @@ Prefab:
       propertyPath: m_Name
       value: SOSliderWithText
       objectReference: {fileID: 0}
+    - target: {fileID: 114201914189562210, guid: 326197be0c7490948b38ef2da506a97a,
+        type: 2}
+      propertyPath: Max.NormalValue
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 326197be0c7490948b38ef2da506a97a, type: 2}
   m_IsPrefabAsset: 0
@@ -568,44 +573,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1112932991 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1682039047487802, guid: a38933117eca3f3459bc433d7cf1cc0c,
-    type: 2}
-  m_PrefabInternal: {fileID: 852001828}
 --- !u!224 &1112932992 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224176142654250278, guid: a38933117eca3f3459bc433d7cf1cc0c,
     type: 2}
   m_PrefabInternal: {fileID: 852001828}
---- !u!114 &1112932993
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1112932991}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc5a742d4eaa38f47a12c5e0abd0ac3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: 3c48a0f9485712347a95c7f5e914ef84, type: 2}
-  OnTrigger:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000, guid: 5014f24aa6aa8984d8c2f8ebbc0cd1be, type: 2}
-        m_MethodName: set_Value
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: ScriptableObjectFramework.IntUnityEvent, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!1 &1253659957
 GameObject:
   m_ObjectHideFlags: 0
@@ -1085,6 +1057,11 @@ Prefab:
       value: 
       objectReference: {fileID: 11400000, guid: 159c98e155b78dc43bca97eb9734a55b,
         type: 2}
+    - target: {fileID: 114201914189562210, guid: 326197be0c7490948b38ef2da506a97a,
+        type: 2}
+      propertyPath: Max.NormalValue
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 326197be0c7490948b38ef2da506a97a, type: 2}
   m_IsPrefabAsset: 0

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Name: HighScore
   m_EditorClassIdentifier: 
   saveInPlayMode: 1
-  value: 14
+  value: 26
   Conditions:
     conditions: []
