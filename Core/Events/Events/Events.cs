@@ -19,11 +19,11 @@ namespace ScriptableObjectFramework
         {
             if (UseHandler)
             {
-                Handler?.HandleEvent(arg);
+                Handler.HandleEvent(arg);
             }
             else
             {
-                SOBacking?.Fire(arg);
+                SOBacking.Fire(arg);
             }
         }
     }

@@ -27,6 +27,10 @@ namespace ScriptableObjectFramework
 
         public override void SelfFire()
         {
+            if (Debug.isDebugBuild)
+            {
+                Debug.Log($"Event {name} was fired with value {Value}.");
+            }
             OnFire.Invoke(Value);
             for (int i = handlers.Count - 1; i >= 0; i--)
             {

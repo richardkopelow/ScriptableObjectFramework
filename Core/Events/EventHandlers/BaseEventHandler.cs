@@ -14,6 +14,10 @@ namespace ScriptableObjectFramework
         {
             if (gameObject.activeInHierarchy)
             {
+                if (Debug.isDebugBuild)
+                {
+                    Debug.Log($"{name} handled an event with value {arg}.");
+                }
                 OnTrigger.Invoke(arg);
             }
         }
