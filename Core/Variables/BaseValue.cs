@@ -2,7 +2,7 @@ using System.ComponentModel;
 
 namespace ScriptableObjectFramework
 {
-    public abstract class BaseValue<T, Y> : IValue<T>
+    public abstract class BaseValue<T, Y> : IValue<T>, INotifyPropertyChanged
         where Y : BaseVariable<T>
     {
         public T NormalValue;

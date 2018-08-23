@@ -14,11 +14,11 @@ namespace ScriptableObjectFramework
         protected override void OnEnable()
         {
             base.OnEnable();
-            PropertyChanged += ConditionableVariable_PropertyChanged;
-            ConditionableVariable_PropertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs("Value"));
+            PropertyChanged += OnValueChanged;
+            OnValueChanged(this, new System.ComponentModel.PropertyChangedEventArgs("Value"));
         }
 
-        private void ConditionableVariable_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        private void OnValueChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
             if (Conditions != null)
             {
