@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19367288778297d46842f1c501d6bbbe, type: 3}
   m_Name: NewHighScore
   m_EditorClassIdentifier: 
-  Value: 17
+  Value: 13
   OnFire:
     m_PersistentCalls:
       m_Calls:
@@ -26,5 +26,5 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: ScriptableObjectFramework.IntUnityEvent, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+    m_TypeName: ScriptableObjectFramework.Events.UnityEvents.IntUnityEvent, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null

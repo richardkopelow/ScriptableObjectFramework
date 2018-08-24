@@ -1,0 +1,22 @@
+﻿using System;
+using UnityEditor;
+using UnityEngine;
+
+namespace ScriptableObjectFramework.Attributes
+{
+    [AttributeUsage(AttributeTargets.Field)]
+    public class ShowByPlayMode : PropertyModifier
+    {
+        public bool PlayMode = true;
+
+        public override void BeforeGUI(ref Rect position, SerializedProperty property, GUIContent label, ref bool visible)
+        {
+            visible = EditorApplication.isPlaying == PlayMode;
+        }
+
+        public override float GetPropertyHeight(SerializedProperty property, GUIContent label, float height)
+        {
+            return EditorApplication.isPlaying == PlayMode ? height : 0;
+        }
+    }
+}

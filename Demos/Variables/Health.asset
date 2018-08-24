@@ -13,5 +13,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   saveInPlayMode: 0
   value: 1
+  currentValue: 11
   Conditions:
     conditions: []

@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Name: Score
   m_EditorClassIdentifier: 
   saveInPlayMode: 0
-  value: 3
+  value: 4
+  currentValue: 11
   Conditions:
     conditions:
     - ExecutionMode: 1

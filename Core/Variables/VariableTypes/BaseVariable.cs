@@ -2,20 +2,20 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using UnityEngine;
+using ScriptableObjectFramework.Attributes;
 
 namespace ScriptableObjectFramework.Variables
 {
-    public class BaseVariable : ScriptableObject
+    public abstract class BaseVariable : ScriptableObject
     {
-        public virtual object GetValue()
-        {
-            return new object();
-        }
+        public abstract object GetValue();
     }
 
     public abstract class BaseVariable<T> : BaseVariable, INotifyPropertyChanged
     {
         [SerializeField]
+        [PairedProperty("SaveInPlayMode")]
+        [ModifiableProperty]
         private bool saveInPlayMode;
         public bool SaveInPlayMode
         {
@@ -33,10 +33,17 @@ namespace ScriptableObjectFramework.Variables
             }
         }
 
-        private T currentValue;
+        [SerializeField]
+        [ShowByPlayMode(PlayMode = false)]
+        [PairedProperty("Value")]
+        [ModifiableProperty]
+        private T value;
 
         [SerializeField]
-        private T value;
+        [ShowByPlayMode]
+        [PairedProperty("Value")]
+        [ModifiableProperty]
+        private T currentValue;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -44,7 +51,7 @@ namespace ScriptableObjectFramework.Variables
         {
             get
             {
-                return saveInPlayMode ? value : currentValue;
+                return currentValue;
             }
             set
             {
