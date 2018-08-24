@@ -1,4 +1,4 @@
-﻿namespace ScriptableObjectFramework
+﻿namespace ScriptableObjectFramework.Conditions
 {
     public interface ICondition<T>
     {

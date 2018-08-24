@@ -1,4 +1,5 @@
 ﻿using ScriptableObjectFramework;
+using ScriptableObjectFramework.Variables;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;

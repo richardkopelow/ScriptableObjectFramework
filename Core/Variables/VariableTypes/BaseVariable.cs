@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using UnityEngine;
 
-namespace ScriptableObjectFramework
+namespace ScriptableObjectFramework.Variables
 {
     public class BaseVariable : ScriptableObject
     {

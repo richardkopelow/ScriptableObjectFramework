@@ -1,7 +1,8 @@
-﻿using UnityEngine;
+﻿using ScriptableObjectFramework.Events.Handlers;
+using UnityEngine;
 using UnityEngine.Events;
 
-namespace ScriptableObjectFramework
+namespace ScriptableObjectFramework.Events
 {
     public class BaseEventHandler<T, Y, Z> : MonoBehaviour, IEventHandler<T>
         where Y : BaseEventBacking<T, Z>

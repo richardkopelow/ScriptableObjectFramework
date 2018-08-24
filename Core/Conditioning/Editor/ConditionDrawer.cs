@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-namespace ScriptableObjectFramework
+namespace ScriptableObjectFramework.Conditions.Editor
 {
     [CustomPropertyDrawer(typeof(Condition), true)]
     public class ConditionDrawer : PropertyDrawer

@@ -1,3 +1,4 @@
+using ScriptableObjectFramework.Variables;
 using System.ComponentModel;
 
 namespace ScriptableObjectFramework

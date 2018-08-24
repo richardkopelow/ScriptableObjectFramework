@@ -1,6 +1,7 @@
+using ScriptableObjectFramework.Conditions;
 using UnityEngine;
 
-namespace ScriptableObjectFramework
+namespace ScriptableObjectFramework.Variables
 {
     [CreateAssetMenu(fileName = "NewIntVariable", menuName = "Scriptable Objects/Variables/Int")]
     public class IntVariable : ConditionableVariable<int, IntComparableConditionCollection>

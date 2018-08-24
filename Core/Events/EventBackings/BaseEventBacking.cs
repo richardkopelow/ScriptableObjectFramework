@@ -1,9 +1,10 @@
-﻿using System.Collections;
+﻿using ScriptableObjectFramework.Events.Handlers;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace ScriptableObjectFramework
+namespace ScriptableObjectFramework.Events
 {
     public abstract class BaseEventBacking : ScriptableObject
     {

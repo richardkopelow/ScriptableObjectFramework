@@ -1,10 +1,11 @@
-﻿using System;
+﻿using ScriptableObjectFramework.Conditions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ScriptableObjectFramework
+namespace ScriptableObjectFramework.Variables
 {
     public class ConditionableVariable<T, Y> : BaseVariable<T>
         where Y : IConditionCollection<T>

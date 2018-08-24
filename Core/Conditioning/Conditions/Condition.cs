@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ScriptableObjectFramework
+namespace ScriptableObjectFramework.Conditions
 {
     public enum ConditionExecutionMode
     {

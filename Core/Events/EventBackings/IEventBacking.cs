@@ -1,10 +1,11 @@
-﻿using System;
+﻿using ScriptableObjectFramework.Events.Handlers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ScriptableObjectFramework
+namespace ScriptableObjectFramework.Events
 {
     public interface IEventBacking<T>
     {

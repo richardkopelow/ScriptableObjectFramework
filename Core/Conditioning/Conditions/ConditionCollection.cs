@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ScriptableObjectFramework
+namespace ScriptableObjectFramework.Conditions
 {
     //TODO: make this abstract
     [Serializable]
@@ -13,7 +13,7 @@ namespace ScriptableObjectFramework
         where Y : ICondition<T>
     {
         [SerializeField]
-        private List<Y> conditions;
+        private List<Y> conditions = new List<Y>();
 
         public IEnumerator<ICondition<T>> GetEnumerator()
         {

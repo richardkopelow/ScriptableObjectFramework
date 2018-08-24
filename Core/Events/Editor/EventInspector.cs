@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-namespace ScriptableObjectFramework
+namespace ScriptableObjectFramework.Events.Editor
 {
     [CustomEditor(typeof(BaseEventBacking), true, isFallback = true)]
     public class BaseEventInspector : UnityEditor.Editor

@@ -1,9 +1,10 @@
-﻿using System;
+﻿using ScriptableObjectFramework.Events;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ScriptableObjectFramework
+namespace ScriptableObjectFramework.Conditions
 {
     [Flags]
     public enum ComparableComparison

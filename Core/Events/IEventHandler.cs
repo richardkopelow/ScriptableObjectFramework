@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace ScriptableObjectFramework
+namespace ScriptableObjectFramework.Events.Handlers
 {
     public interface IEventHandler<T>
     {

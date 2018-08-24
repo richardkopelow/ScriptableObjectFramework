@@ -1,6 +1,7 @@
+using ScriptableObjectFramework.Events.UnityEvents;
 using UnityEngine;
 
-namespace ScriptableObjectFramework
+namespace ScriptableObjectFramework.Events
 {
     public class Vector3EventHandler : BaseEventHandler<Vector3, Vector3EventBacking, Vector3UnityEvent> { }
 }

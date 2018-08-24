@@ -1,6 +1,7 @@
+using ScriptableObjectFramework.Conditions;
 using UnityEngine;
 
-namespace ScriptableObjectFramework
+namespace ScriptableObjectFramework.Variables
 {
     [CreateAssetMenu(fileName = "NewFloatVariable", menuName = "Scriptable Objects/Variables/Float")]
     public class FloatVariable : ConditionableVariable<float, FloatComparableConditionCollection>

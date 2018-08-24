@@ -1,10 +1,12 @@
 ﻿using ScriptableObjectFramework;
+using ScriptableObjectFramework.Events;
+using ScriptableObjectFramework.Events.Handlers;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ScriptableObjectFramework
+namespace ScriptableObjectFramework.Events
 {
     [Serializable]
     public class BaseEvent<T, Y, Z> : IEvent<T>

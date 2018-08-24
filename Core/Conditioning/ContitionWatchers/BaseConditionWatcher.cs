@@ -1,7 +1,8 @@
 ﻿using ScriptableObjectFramework;
+using ScriptableObjectFramework.Variables;
 using UnityEngine;
 
-namespace ScriptableObjectFramework
+namespace ScriptableObjectFramework.Conditions.Watchers
 {
     public class BaseConditionWatcher<T, Y, Z> : MonoBehaviour
         where Y : BaseVariable<T>
