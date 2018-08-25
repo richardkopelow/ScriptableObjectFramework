@@ -7,6 +7,11 @@ using System.Threading.Tasks;
 
 namespace ScriptableObjectFramework.Variables
 {
+    /// <summary>
+    /// The base type for creating variables that support innate conditions.
+    /// </summary>
+    /// <typeparam name="T">The data type to store in the Variable.</typeparam>
+    /// <typeparam name="Y">The ConditionCollection to store the desired conditions.</typeparam>
     public class ConditionableVariable<T, Y> : BaseVariable<T>
         where Y : IConditionCollection<T>
     {

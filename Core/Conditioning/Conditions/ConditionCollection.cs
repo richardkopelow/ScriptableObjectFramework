@@ -9,6 +9,14 @@ namespace ScriptableObjectFramework.Conditions
     [Serializable]
     public class ConditionCollection { }
 
+    /// <summary>
+    /// The base type for creating condition collections.
+    /// </summary>
+    /// <remarks>
+    /// Using ConditionCollections ensures the collection of conditions will be drawn correctly. It also lets one easily inherit from ConditionableVariable.
+    /// </remarks>
+    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="Y"></typeparam>
     public class ConditionCollection<T, Y> : ConditionCollection, IConditionCollection<T>
         where Y : ICondition<T>
     {

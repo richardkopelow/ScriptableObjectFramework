@@ -11,12 +11,19 @@ namespace ScriptableObjectFramework.Variables
         public abstract object GetValue();
     }
 
+    /// <summary>
+    /// The base type for creating new Variable types.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public abstract class BaseVariable<T> : BaseVariable, INotifyPropertyChanged
     {
         [SerializeField]
         [PairedProperty("SaveInPlayMode")]
         [ModifiableProperty]
         private bool saveInPlayMode;
+        /// <summary>
+        /// Toggles whether the changes should be saved in play mode
+        /// </summary>
         public bool SaveInPlayMode
         {
             get
@@ -33,20 +40,27 @@ namespace ScriptableObjectFramework.Variables
             }
         }
 
+        [Tooltip("The stored value of the variable.")]
         [SerializeField]
         [ShowByPlayMode(PlayMode = false)]
-        [PairedProperty("Value")]
         [ModifiableProperty]
         private T value;
 
+        [Tooltip("The current value of the variable.")]
         [SerializeField]
         [ShowByPlayMode]
         [PairedProperty("Value")]
         [ModifiableProperty]
         private T currentValue;
 
+        /// <summary>
+        /// Fired when the Value property is changed.
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
+        /// <summary>
+        /// The value of the variable.
+        /// </summary>
         public virtual T Value
         {
             get
@@ -67,6 +81,10 @@ namespace ScriptableObjectFramework.Variables
             }
         }
 
+        /// <summary>
+        /// Gets the value of the variable.
+        /// </summary>
+        /// <returns>An object reference to the variable's value.</returns>
         public override object GetValue()
         {
             return Value;

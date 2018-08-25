@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace ScriptableObjectFramework.Attributes
 {
+    /// <summary>
+    /// Shows property only in play mode if PlayMode is true. Only outside of play mode if PlayMode if false;
+    /// </summary>
     [AttributeUsage(AttributeTargets.Field)]
     public class ShowByPlayMode : PropertyModifier
     {

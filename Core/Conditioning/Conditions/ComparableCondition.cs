@@ -18,6 +18,12 @@ namespace ScriptableObjectFramework.Conditions
         None = 0
     }
 
+    /// <summary>
+    /// A condition that compares IComparables.
+    /// </summary>
+    /// <typeparam name="T">The type to compare</typeparam>
+    /// <typeparam name="Y">The Value type to compare against</typeparam>
+    /// <typeparam name="Z">The event type to trigger</typeparam>
     public class ComparableCondition<T, Y, Z> : Condition<T>
         where T : IComparable
         where Y : IValue<T>

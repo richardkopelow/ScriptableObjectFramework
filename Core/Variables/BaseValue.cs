@@ -3,6 +3,11 @@ using System.ComponentModel;
 
 namespace ScriptableObjectFramework
 {
+    /// <summary>
+    /// The base type for creating Values.
+    /// </summary>
+    /// <typeparam name="T">The data type.</typeparam>
+    /// <typeparam name="Y">The Variable type.</typeparam>
     public abstract class BaseValue<T, Y> : IValue<T>, INotifyPropertyChanged
         where Y : BaseVariable<T>
     {
@@ -10,6 +15,9 @@ namespace ScriptableObjectFramework
         public Y SOValue;
         public bool UseNormal;
 
+        /// <summary>
+        /// The data value of the Value field;
+        /// </summary>
         public T Value
         {
             get

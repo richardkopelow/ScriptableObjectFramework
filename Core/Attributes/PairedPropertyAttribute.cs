@@ -5,6 +5,12 @@ using UnityEngine;
 
 namespace ScriptableObjectFramework.Attributes
 {
+    /// <summary>
+    /// Connects a field to a property so that when it is changed in editor, the property will be triggered as well.
+    /// </summary>
+    /// <remarks>
+    /// This works by, on change, assigning the field to the property. Therefor checks to prevent the property from doing anything if the value is the same as the one already stored may interfere.
+    /// </remarks>
     [AttributeUsage(AttributeTargets.Field)]
     public class PairedProperty : PropertyModifier
     {

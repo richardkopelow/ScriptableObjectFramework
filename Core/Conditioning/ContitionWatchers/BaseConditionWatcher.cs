@@ -4,6 +4,12 @@ using UnityEngine;
 
 namespace ScriptableObjectFramework.Conditions.Watchers
 {
+    /// <summary>
+    /// The base type for creating objects that exist in the scene and evaluate variable conditions.
+    /// </summary>
+    /// <typeparam name="T">The type to compare</typeparam>
+    /// <typeparam name="Y">The Value type to compare against</typeparam>
+    /// <typeparam name="Z">The condition collection type</typeparam>
     public class BaseConditionWatcher<T, Y, Z> : MonoBehaviour
         where Y : BaseVariable<T>
         where Z : IConditionCollection<T>
