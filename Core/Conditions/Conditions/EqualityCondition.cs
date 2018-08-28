@@ -29,7 +29,7 @@ namespace ScriptableObjectFramework.Conditions
                 ? EqualityComparison.EqualTo
                 : EqualityComparison.NotEqualTo;
             if (currentState == Condition
-                && (currentState != lastState && ExecutionMode != ConditionExecutionMode.OnThreshold))
+                && (currentState != lastState || ExecutionMode != ConditionExecutionMode.OnThreshold))
             {
                 Event.Fire(value);
             }
