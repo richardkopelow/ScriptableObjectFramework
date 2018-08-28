@@ -10,9 +10,9 @@ namespace ScriptableObjectFramework.Attributes
     [AttributeUsage(AttributeTargets.Field)]
     public class ShowByPlayMode : PropertyModifier
     {
-#if UNITY_EDITOR
         public bool PlayMode = true;
 
+#if UNITY_EDITOR
         public override void BeforeGUI(ref Rect position, SerializedProperty property, GUIContent label, ref bool visible)
         {
             visible = EditorApplication.isPlaying == PlayMode;
