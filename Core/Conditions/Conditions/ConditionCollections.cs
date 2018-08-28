@@ -10,4 +10,6 @@ namespace ScriptableObjectFramework.Conditions
     public class IntComparableConditionCollection : ConditionCollection<int, IntComparableCondition> { }
     [Serializable]
     public class FloatComparableConditionCollection : ConditionCollection<float, FloatComparableCondition> { }
+    [Serializable]
+    public class BoolEqualityConditionCollection : ConditionCollection<bool, BoolEqualityCondition> { }
 }
