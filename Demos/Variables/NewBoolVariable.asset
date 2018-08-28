@@ -14,3 +14,5 @@ MonoBehaviour:
   saveInPlayMode: 0
   value: 0
   currentValue: 0
+  Conditions:
+    conditions: []

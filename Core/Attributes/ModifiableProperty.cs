@@ -14,6 +14,7 @@ namespace ScriptableObjectFramework.Attributes
     [AttributeUsage(AttributeTargets.Field)]
     public class ModifiableProperty : PropertyAttribute
     {
+#if UNITY_EDITOR
         /// <summary>
         /// Modifiers for the property drawer
         /// </summary>
@@ -40,5 +41,6 @@ namespace ScriptableObjectFramework.Attributes
         {
             return EditorGUI.GetPropertyHeight(property,label);
         }
+#endif
     }
 }

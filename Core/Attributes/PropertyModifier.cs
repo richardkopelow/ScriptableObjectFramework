@@ -14,6 +14,7 @@ namespace ScriptableObjectFramework.Attributes
     [AttributeUsage(AttributeTargets.Field)]
     public abstract class PropertyModifier : PropertyAttribute
     {
+#if UNITY_EDITOR
         /// <summary>
         /// Handles all ground work before the property is drawn.
         /// </summary>
@@ -56,5 +57,6 @@ namespace ScriptableObjectFramework.Attributes
         {
             return height;
         }
+#endif
     }
 }

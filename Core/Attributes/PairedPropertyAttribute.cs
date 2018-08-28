@@ -14,6 +14,7 @@ namespace ScriptableObjectFramework.Attributes
     [AttributeUsage(AttributeTargets.Field)]
     public class PairedProperty : PropertyModifier
     {
+#if UNITY_EDITOR
         public string PropertyName;
         public bool PlaymodeOnly;
 
@@ -49,5 +50,6 @@ namespace ScriptableObjectFramework.Attributes
                 }
             }
         }
+#endif
     }
 }
