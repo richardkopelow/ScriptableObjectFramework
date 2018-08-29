@@ -8,7 +8,7 @@ namespace ScriptableObjectFramework.Sets
     public abstract class SetRegisterer<T, Y> : MonoBehaviour
         where Y : IRuntimeSet<T>
     {
-        [Serializable]
+        [SerializeField]
         protected List<Y> Sets;
 
         protected abstract void OnEnable();
