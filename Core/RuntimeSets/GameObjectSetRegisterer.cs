@@ -9,7 +9,7 @@ namespace ScriptableObjectFramework.Sets
 {
     public class GameObjectSetRegisterer : SetRegisterer<GameObject, GameObjectRuntimeSet>
     {
-        protected override void OnDisable()
+        protected override void OnEnable()
         {
             foreach (var set in Sets)
             {
@@ -17,7 +17,7 @@ namespace ScriptableObjectFramework.Sets
             }
         }
 
-        protected override void OnEnable()
+        protected override void OnDisable()
         {
             foreach (var set in Sets)
             {
