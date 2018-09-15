@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace ScriptableObjectFramework.Systems
+namespace ScriptableObjectFramework.Systems.SceneManagement
 {
+    [CreateAssetMenu(fileName = "NewSceneManager", menuName = "Scriptable Objects/Systems/SceneManager")]
     public class SceneManager : ScriptableObject
     {
-        public SceneFader FaderPrefab;
+        public BaseSceneFader FaderPrefab;
         public BoolValue ShowProgressBar;
         public FloatValue FadeTime;
         public Color FadeColor;
@@ -35,21 +36,41 @@ namespace ScriptableObjectFramework.Systems
             SceneLoaded_Index.Invoke(next.buildIndex);
         }
 
-        public Coroutine LoadScene(string name)
+        public void LoadScene(int id)
         {
-            SceneFader fader = Instantiate(FaderPrefab);
-            fader.Init(FadeColor, TransitionBackground, ShowProgressBar);
-            DontDestroyOnLoad(fader.gameObject);
-            return fader.StartCoroutine(loadSceneAsync(name, fader));
+            Coroutine co;
+            LoadScene(id, out co);
         }
 
-        private IEnumerator loadSceneAsync(string name, SceneFader fader)
+        public void LoadScene(int id, out Coroutine coroutine)
+        {
+            BaseSceneFader fader = Instantiate(FaderPrefab);
+            fader.Init(FadeColor, TransitionBackground, ShowProgressBar);
+            DontDestroyOnLoad(fader.gameObject);
+            coroutine = fader.StartCoroutine(loadSceneAsync(UnityEngine.SceneManagement.SceneManager.GetSceneByBuildIndex(id).name, fader));
+        }
+
+        public void LoadScene(string name)
+        {
+            Coroutine co;
+            LoadScene(name, out co);
+        }
+
+        public void LoadScene(string name, out Coroutine coroutine)
+        {
+            BaseSceneFader fader = Instantiate(FaderPrefab);
+            fader.Init(FadeColor, TransitionBackground, ShowProgressBar);
+            DontDestroyOnLoad(fader.gameObject);
+            coroutine = fader.StartCoroutine(loadSceneAsync(name, fader));
+        }
+
+        private IEnumerator loadSceneAsync(string name, BaseSceneFader fader)
         {
             var loadOp = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(name);
             loadOp.allowSceneActivation = false;
             float passedTime = 0;
             //A progress of 0.9 indicates that the scene data is loaded into memory and ready to be switched to.
-            while (loadOp.progress < 0.9f)
+            while (loadOp.progress < 0.9f || passedTime < FadeTime)
             {
                 yield return null;
                 passedTime += Time.deltaTime;
@@ -59,6 +80,15 @@ namespace ScriptableObjectFramework.Systems
             loadOp.allowSceneActivation = true;
 
             yield return new WaitUntil(() => loadOp.isDone);
+
+            passedTime = 0;
+            //A progress of 0.9 indicates that the scene data is loaded into memory and ready to be switched to.
+            while (passedTime < FadeTime)
+            {
+                yield return null;
+                passedTime += Time.deltaTime;
+                fader.SetFadeAlpha(Mathf.Clamp(1 - passedTime / FadeTime, 0, 1));
+            }
 
             Destroy(fader.gameObject);
         }
