@@ -13,7 +13,7 @@ namespace ScriptableObjectFramework
     {
         public T NormalValue;
         public Y SOValue;
-        public bool UseNormal;
+        public bool UseNormal = true;
 
         /// <summary>
         /// The data value of the Value field;
