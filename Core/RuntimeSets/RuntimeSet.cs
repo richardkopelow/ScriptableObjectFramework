@@ -31,7 +31,7 @@ namespace ScriptableObjectFramework.Sets
             if (!set.Contains(value))
             {
                 set.Add(value);
-                OnAdd.Invoke(value);
+                OnAdd?.Invoke(value);
             }
         }
 
