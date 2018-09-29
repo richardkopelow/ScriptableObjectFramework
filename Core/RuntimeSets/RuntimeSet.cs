@@ -26,6 +26,11 @@ namespace ScriptableObjectFramework.Sets
 
         private List<T> set = new List<T>();
 
+        private void OnEnable()
+        {
+            set = new List<T>();
+        }
+
         public void Add(T value)
         {
             if (!set.Contains(value))
@@ -39,7 +44,7 @@ namespace ScriptableObjectFramework.Sets
         {
             if (set.Contains(value))
             {
-                set.Remove(value);
+                set?.Remove(value);
                 OnRemove.Invoke(value);
             }
         }
