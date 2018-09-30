@@ -14,7 +14,7 @@ MonoBehaviour:
   FaderPrefab: {fileID: 114247785547280244, guid: b396065829e3e984c8c734ed0b62d6b2,
     type: 2}
   ShowProgressBar:
-    NormalValue: 1
+    NormalValue: 0
     SOValue: {fileID: 0}
     UseNormal: 1
   FadeTime:
