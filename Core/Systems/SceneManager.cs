@@ -14,6 +14,21 @@ namespace ScriptableObjectFramework.Systems.SceneManagement
         public FloatValue FadeTime;
         public Color FadeColor;
         public Sprite TransitionBackground;
+        [SerializeField]
+        private ThreadPriority _asyncLoadPriority = ThreadPriority.Normal;
+        public ThreadPriority AsyncLoadPriority
+        {
+            get
+            {
+                return _asyncLoadPriority;
+            }
+            set
+            {
+                _asyncLoadPriority = value;
+                Application.backgroundLoadingPriority = _asyncLoadPriority;
+            }
+        }
+
         public StringUnityEvent SceneLoaded_Name;
         public IntUnityEvent SceneLoaded_Index;
 
@@ -28,6 +43,7 @@ namespace ScriptableObjectFramework.Systems.SceneManagement
         private void OnEnable()
         {
             UnityEngine.SceneManagement.SceneManager.activeSceneChanged += SceneManager_activeSceneChanged;
+            AsyncLoadPriority = _asyncLoadPriority;
         }
 
         private void SceneManager_activeSceneChanged(Scene current, Scene next)
