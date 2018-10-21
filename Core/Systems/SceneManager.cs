@@ -92,5 +92,16 @@ namespace ScriptableObjectFramework.Systems.SceneManagement
 
             Destroy(fader.gameObject);
         }
+
+        public void ReloadCurrentScene()
+        {
+            Coroutine co;
+            ReloadCurrentScene(out co);
+        }
+
+        public void ReloadCurrentScene(out Coroutine coroutine)
+        {
+            LoadScene(CurrentScene.name, out coroutine);
+        }
     }
 }
