@@ -18,7 +18,7 @@ MonoBehaviour:
     SOValue: {fileID: 0}
     UseNormal: 1
   FadeTime:
-    NormalValue: 3
+    NormalValue: 1
     SOValue: {fileID: 0}
     UseNormal: 1
   FadeColor: {r: 1, g: 1, b: 1, a: 0}
