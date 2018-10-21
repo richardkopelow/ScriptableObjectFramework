@@ -2,5 +2,5 @@ using ScriptableObjectFramework.Events.UnityEvents;
 
 namespace ScriptableObjectFramework.Events
 {
-    public class BoolEventHandler : BaseEventHandler<bool, BoolEventBacking, BoolUnityEvent> { }
+    public class BoolEventHandler : BaseEventHandler<bool, BoolEvent, BoolUnityEvent> { }
 }

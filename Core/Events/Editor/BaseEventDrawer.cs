@@ -13,6 +13,6 @@ namespace ScriptableObjectFramework.Editor
     {
         protected override string FlagField => "UseHandler";
         protected override string Backing1 => "SOBacking";
-        protected override string Backing2 => "Handler";
+        protected override string Backing2 => "Emitter";
     }
 }

@@ -3,5 +3,5 @@ using UnityEngine;
 
 namespace ScriptableObjectFramework.Events
 {
-    public class GameObjectEventHandler : BaseEventHandler<GameObject, GameObjectEvent, GameObjectUnityEvent> { }
+    public class FloatEventEmitter : BaseEventEmitter<float, FloatUnityEvent> { }
 }

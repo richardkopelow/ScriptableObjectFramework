@@ -9,37 +9,47 @@ using UnityEngine;
 namespace ScriptableObjectFramework.Events
 {
     [Serializable]
-    public class BaseEvent<T, Y, Z> : IEvent<T>
+    public class BaseEvent<T, Y, Z> : IEvent<T>, IEventBacking<T>
         where Y : IEventBacking<T>
-        where Z : IEventHandler<T>
+        where Z : IEventBacking<T>
     {
         public bool UseHandler;
         public Y SOBacking;
-        public Z Handler;
+        public Z Emitter;
+
+        private IEventBacking<T> activeBacking => UseHandler ? (IEventBacking<T>)Emitter : (IEventBacking<T>)SOBacking;
+
+        public void Deregister(IEventHandler<T> handler)
+        {
+            activeBacking.Deregister(handler);
+        }
 
         public void Fire(T arg)
         {
-            if (UseHandler)
-            {
-                Handler.HandleEvent(arg);
-            }
-            else
-            {
-                SOBacking.Fire(arg);
-            }
+            activeBacking.Fire(arg);
+        }
+
+        public void Register(IEventHandler<T> handler)
+        {
+            activeBacking.Register(handler);
+        }
+
+        public void SelfFire()
+        {
+            activeBacking.SelfFire();
         }
     }
 }
 
 [Serializable]
-public class IntEvent : BaseEvent<int, IntEventBacking, IntEventHandler> { }
+public class IntEvent : BaseEvent<int, IntEventBacking, IntEventEmitter> { }
 [Serializable]
-public class FloatEvent : BaseEvent<float, FloatEventBacking, FloatEventHandler> { }
+public class FloatEvent : BaseEvent<float, FloatEventBacking, FloatEventEmitter> { }
 [Serializable]
-public class BoolEvent : BaseEvent<bool, BoolEventBacking, BoolEventHandler> { }
+public class BoolEvent : BaseEvent<bool, BoolEventBacking, BoolEventEmitter> { }
 [Serializable]
-public class StringEvent : BaseEvent<string, StringEventBacking, StringEventHandler> { }
+public class StringEvent : BaseEvent<string, StringEventBacking, StringEventEmitter> { }
 [Serializable]
-public class Vector3Event : BaseEvent<Vector3, Vector3EventBacking, Vector3EventHandler> { }
+public class Vector3Event : BaseEvent<Vector3, Vector3EventBacking, Vector3EventEmitter> { }
 [Serializable]
-public class GameObjectEvent : BaseEvent<GameObject, GameObjectEventBacking, GameObjectEventHandler> { }
+public class GameObjectEvent : BaseEvent<GameObject, GameObjectEventBacking, GameObjectEventEmitter> { }
