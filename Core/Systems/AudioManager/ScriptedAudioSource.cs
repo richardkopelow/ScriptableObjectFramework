@@ -1,11 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
 public class ScriptedAudioSource : MonoBehaviour
 {
     public bool IsPlaying => audioSource.isPlaying;
+    public event Action<ScriptedAudioSource> OnDestorying;
 
     private Transform trans;
     private AudioSource audioSource;
@@ -32,5 +32,10 @@ public class ScriptedAudioSource : MonoBehaviour
         audioSource.reverbZoneMix = audio.ReverbZoneMix;
 
         audioSource.Play();
+    }
+
+    private void OnDestroy()
+    {
+        OnDestorying?.Invoke(this);
     }
 }

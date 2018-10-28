@@ -36,9 +36,15 @@ public class AudioManager : ScriptableObject
         if (swimmer == null)
         {
             swimmer = Instantiate(AudioSourcePrefab);
+            swimmer.OnDestorying += OnDestroying;
             pool.Add(swimmer);
         }
         swimmer.Play(audioAsset);
+    }
+
+    private void OnDestroying(ScriptedAudioSource audioSource)
+    {
+        pool.Remove(audioSource);
     }
 
     public virtual void Play(AudioClip audioClip)

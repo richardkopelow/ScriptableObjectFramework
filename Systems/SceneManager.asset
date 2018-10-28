@@ -14,7 +14,7 @@ MonoBehaviour:
   FaderPrefab: {fileID: 114247785547280244, guid: b396065829e3e984c8c734ed0b62d6b2,
     type: 2}
   ShowProgressBar:
-    NormalValue: 0
+    NormalValue: 1
     SOValue: {fileID: 0}
     UseNormal: 1
   FadeTime:
@@ -23,6 +23,7 @@ MonoBehaviour:
     UseNormal: 1
   FadeColor: {r: 1, g: 1, b: 1, a: 0}
   TransitionBackground: {fileID: 0}
+  _asyncLoadPriority: 2
   SceneLoaded_Name:
     m_PersistentCalls:
       m_Calls: []
