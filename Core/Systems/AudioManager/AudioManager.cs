@@ -39,6 +39,7 @@ public class AudioManager : ScriptableObject
             swimmer.OnDestorying += OnDestroying;
             pool.Add(swimmer);
         }
+        swimmer.name = "PooledAudio-" + audioAsset.name;
         swimmer.Play(audioAsset);
     }
 

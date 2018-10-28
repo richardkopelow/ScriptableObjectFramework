@@ -12,16 +12,25 @@ public class AudioAsset : ScriptableObject
     public bool BypassEffects;
     public bool BypassReverbZone;
     public bool Loop;
-    [Range(0,256)]
-    public int Priority=128;
-    [Range(0,1)]
+    [Range(0, 256)]
+    public int Priority = 128;
+    [Range(0, 1)]
     public float Volume = 1;
-    [Range(-3,3)]
+    [Range(-3, 3)]
     public float Pitch = 1;
     [Range(-1, 1)]
     public float StereoPan = 0;
-    [Range(0,1)]
+    [Range(0, 1)]
     public float SpatialBlend = 0;
     [Range(0, 1.1f)]
     public float ReverbZoneMix;
+
+    [Space]
+    [Range(0, 5)]
+    public float DopplerLevel = 1;
+    [Range(0, 360)]
+    public int Spread = 0;
+    public AudioRolloffMode VolumeRolloff = AudioRolloffMode.Logarithmic;
+    public float MinDistance = 10;
+    public float MaxDitance = 500;
 }

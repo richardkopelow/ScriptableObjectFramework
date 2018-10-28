@@ -30,6 +30,11 @@ public class ScriptedAudioSource : MonoBehaviour
         audioSource.panStereo = audio.StereoPan;
         audioSource.spatialBlend = audio.SpatialBlend;
         audioSource.reverbZoneMix = audio.ReverbZoneMix;
+        audioSource.dopplerLevel = audio.DopplerLevel;
+        audioSource.spread = audio.Spread;
+        audioSource.rolloffMode = audio.VolumeRolloff;
+        audioSource.minDistance = audio.MinDistance;
+        audioSource.maxDistance = audio.MaxDitance;
 
         audioSource.Play();
     }
