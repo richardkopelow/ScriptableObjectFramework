@@ -16,9 +16,9 @@ public abstract class FlipDrawer : PropertyDrawer
 
         SerializedProperty useNormal = property.FindPropertyRelative(FlagField);
 
-        var buttonStyle = EditorGUIUtility.GetBuiltinSkin(EditorSkin.Inspector).FindStyle("SimplePopup");
+        var buttonStyle = EditorGUIUtility.GetBuiltinSkin(EditorSkin.Inspector).FindStyle("Popup");
         if (EditorGUI.DropdownButton(
-            new Rect(position.x, position.y, 10, position.height),
+            new Rect(position.x, position.y, 20, position.height),
             GUIContent.none,
             FocusType.Passive,
             buttonStyle))
@@ -31,7 +31,7 @@ public abstract class FlipDrawer : PropertyDrawer
         var indent = EditorGUI.indentLevel;
         EditorGUI.indentLevel = 0;
 
-        var valueRect = new Rect(position.x + 10, position.y, position.width - 10, position.height);
+        var valueRect = new Rect(position.x + 20, position.y, position.width - 20, position.height);
         EditorGUI.PropertyField(valueRect, property.FindPropertyRelative(useNormal.boolValue ? Backing2 : Backing1), GUIContent.none);
 
         // Set indent back to what it was
