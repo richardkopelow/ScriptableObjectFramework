@@ -87,7 +87,7 @@ namespace ScriptableObjectFramework.Systems.SceneManagement
             while (passedTime < FadeTime)
             {
                 yield return null;
-                passedTime += Time.deltaTime;
+                passedTime += Time.unscaledDeltaTime;
                 fader.SetFadeAlpha(Mathf.Clamp(1 - passedTime / FadeTime, 0, 1));
             }
 
