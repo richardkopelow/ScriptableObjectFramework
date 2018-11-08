@@ -19,6 +19,30 @@ namespace ScriptableObjectFramework.Systems.ApplicationManager
             }
         }
 
+        public bool CursorVisible
+        {
+            get
+            {
+                return Cursor.visible;
+            }
+            set
+            {
+                Cursor.visible = value;
+            }
+        }
+
+        public CursorLockMode CursorLockMode
+        {
+            get
+            {
+                return Cursor.lockState;
+            }
+            set
+            {
+                Cursor.lockState = value;
+            }
+        }
+
         public void Quit()
         {
 #if UNITY_EDITOR
