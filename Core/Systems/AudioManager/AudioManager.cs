@@ -22,7 +22,7 @@ public class AudioManager : ScriptableObject
         }
     }
 
-    public virtual ScriptedAudioSource Play(AudioAsset audioAsset)
+    public virtual void Play(AudioAsset audioAsset, out ScriptedAudioSource audioSource)
     {
         ScriptedAudioSource swimmer = null;
         for (int i = 0; i < pool.Count; i++)
@@ -41,14 +41,25 @@ public class AudioManager : ScriptableObject
         }
         swimmer.name = "PooledAudio-" + audioAsset.name;
         swimmer.Play(audioAsset);
-        return swimmer;
+        audioSource = swimmer;
+    }
+    public virtual void Play(AudioAsset audioAsset)
+    {
+        ScriptedAudioSource audioSource = null;
+        Play(audioAsset, out audioSource);
     }
 
-    public virtual ScriptedAudioSource Play(AudioClip audioClip)
+    public virtual void Play(AudioClip audioClip, out ScriptedAudioSource audioSource)
     {
         AudioAsset asset = ScriptableObject.CreateInstance<AudioAsset>();
         asset.Clip = audioClip;
-        return Play(asset);
+        Play(asset, out audioSource);
+    }
+
+    public virtual void Play(AudioClip audioClip)
+    {
+        ScriptedAudioSource audioSource;
+        Play(audioClip, out audioSource);
     }
 
     private void OnDestroying(ScriptedAudioSource audioSource)
