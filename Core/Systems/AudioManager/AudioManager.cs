@@ -5,6 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "NewAudioManager", menuName = "Scriptable Objects/Systems/Audio/Audio Manager")]
 public class AudioManager : ScriptableObject
 {
+    public BoolValue Muted;
+    public FloatValue MasterVolume;
     public ScriptedAudioSource AudioSourcePrefab;
 
     private List<ScriptedAudioSource> pool;
@@ -12,6 +14,31 @@ public class AudioManager : ScriptableObject
     private void OnEnable()
     {
         pool = new List<ScriptedAudioSource>();
+        Muted.TieEvents();
+        Muted.PropertyChanged += OnMutedChanged;
+        MasterVolume.TieEvents();
+        MasterVolume.PropertyChanged += OnMaterVolumeChanged;
+    }
+
+    private void OnMutedChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+    {
+        for (int i = 0; i < pool.Count; i++)
+        {
+            pool[i].Muted = Muted;
+        }
+    }
+
+    private void OnMaterVolumeChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+    {
+        foreach (ScriptedAudioSource audio in pool)
+        {
+            setVolume(audio.GetComponent<AudioSource>(), audio.Audio.Volume); 
+        }
+    }
+
+    private void setVolume(AudioSource audioSource, float volume)
+    {
+        audioSource.volume = volume * MasterVolume;
     }
 
     private void OnDisable()
@@ -36,11 +63,13 @@ public class AudioManager : ScriptableObject
         if (swimmer == null)
         {
             swimmer = Instantiate(AudioSourcePrefab);
+            swimmer.Muted = Muted;
             swimmer.OnDestorying += OnDestroying;
             pool.Add(swimmer);
         }
         swimmer.name = "PooledAudio-" + audioAsset.name;
         swimmer.Play(audioAsset);
+        setVolume(swimmer.GetComponent<AudioSource>(), swimmer.Audio.Volume);
         audioSource = swimmer;
     }
     public virtual void Play(AudioAsset audioAsset)

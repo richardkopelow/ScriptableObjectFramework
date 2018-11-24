@@ -4,7 +4,13 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class ScriptedAudioSource : MonoBehaviour
 {
+    public AudioAsset Audio;
     public bool IsPlaying => audioSource.isPlaying;
+    public bool Muted
+    {
+        get => audioSource.mute;
+        set => audioSource.mute = value;
+    }
     public event Action<ScriptedAudioSource> OnDestorying;
 
     private Transform trans;
@@ -18,23 +24,29 @@ public class ScriptedAudioSource : MonoBehaviour
 
     public void Play(AudioAsset audio)
     {
-        trans.position = audio.Position;
-        audioSource.clip = audio.Clip;
-        audioSource.outputAudioMixerGroup = audio.MixerGroup;
-        audioSource.bypassEffects = audio.BypassEffects;
-        audioSource.bypassReverbZones = audio.BypassReverbZone;
-        audioSource.loop = audio.Loop;
-        audioSource.priority = audio.Priority;
-        audioSource.volume = audio.Volume;
-        audioSource.pitch = audio.Pitch;
-        audioSource.panStereo = audio.StereoPan;
-        audioSource.spatialBlend = audio.SpatialBlend;
-        audioSource.reverbZoneMix = audio.ReverbZoneMix;
-        audioSource.dopplerLevel = audio.DopplerLevel;
-        audioSource.spread = audio.Spread;
-        audioSource.rolloffMode = audio.VolumeRolloff;
-        audioSource.minDistance = audio.MinDistance;
-        audioSource.maxDistance = audio.MaxDitance;
+        Audio = audio;
+        Play();
+    }
+
+    public void Play()
+    {
+        trans.position = Audio.Position;
+        audioSource.clip = Audio.Clip;
+        audioSource.outputAudioMixerGroup = Audio.MixerGroup;
+        audioSource.bypassEffects = Audio.BypassEffects;
+        audioSource.bypassReverbZones = Audio.BypassReverbZone;
+        audioSource.loop = Audio.Loop;
+        audioSource.priority = Audio.Priority;
+        audioSource.volume = Audio.Volume;
+        audioSource.pitch = Audio.Pitch;
+        audioSource.panStereo = Audio.StereoPan;
+        audioSource.spatialBlend = Audio.SpatialBlend;
+        audioSource.reverbZoneMix = Audio.ReverbZoneMix;
+        audioSource.dopplerLevel = Audio.DopplerLevel;
+        audioSource.spread = Audio.Spread;
+        audioSource.rolloffMode = Audio.VolumeRolloff;
+        audioSource.minDistance = Audio.MinDistance;
+        audioSource.maxDistance = Audio.MaxDitance;
 
         audioSource.Play();
     }

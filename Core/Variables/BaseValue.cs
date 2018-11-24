@@ -1,5 +1,6 @@
 using ScriptableObjectFramework.Variables;
 using System.ComponentModel;
+using UnityEngine;
 
 namespace ScriptableObjectFramework
 {
@@ -8,11 +9,31 @@ namespace ScriptableObjectFramework
     /// </summary>
     /// <typeparam name="T">The data type.</typeparam>
     /// <typeparam name="Y">The Variable type.</typeparam>
-    public abstract class BaseValue<T, Y> : IValue<T>, INotifyPropertyChanged
+    public abstract class BaseValue<T, Y> : IValue<T>
         where Y : BaseVariable<T>
     {
         public T NormalValue;
-        public Y SOValue;
+        [SerializeField]
+        private Y SOValue;
+        public Y ScriptableObject
+        {
+            get
+            {
+                return SOValue;
+            }
+            set
+            {
+                if (SOValue != null)
+                {
+                    SOValue.PropertyChanged -= invokePropertyChanged;
+                }
+                SOValue = value;
+                if (SOValue != null)
+                {
+                    SOValue.PropertyChanged += invokePropertyChanged;
+                }
+            }
+        }
         public bool UseNormal = true;
 
         /// <summary>
@@ -36,19 +57,24 @@ namespace ScriptableObjectFramework
                 if (UseNormal || SOValue == null)
                 {
                     NormalValue = value;
+                    if (PropertyChanged != null)
+                    {
+                        PropertyChanged(this, new PropertyChangedEventArgs("Value"));
+                    }
                 }
                 else
                 {
                     SOValue.Value = value;
                 }
-                if (PropertyChanged != null)
-                {
-                    PropertyChanged(this, new PropertyChangedEventArgs("Value"));
-                }
+
             }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
+        private void invokePropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            PropertyChanged(this, e);
+        }
 
         public static implicit operator T(BaseValue<T, Y> value)
         {
@@ -58,6 +84,14 @@ namespace ScriptableObjectFramework
         public override string ToString()
         {
             return Value.ToString();
+        }
+
+        public void TieEvents()
+        {
+            if (SOValue != null)
+            {
+                SOValue.PropertyChanged += invokePropertyChanged;
+            }
         }
     }
 }
