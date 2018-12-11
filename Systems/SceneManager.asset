@@ -4,8 +4,7 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -13,53 +12,21 @@ MonoBehaviour:
   m_Name: SceneManager
   m_EditorClassIdentifier: 
   FaderPrefab: {fileID: 114247785547280244, guid: b396065829e3e984c8c734ed0b62d6b2,
-    type: 3}
+    type: 2}
   ShowProgressBar:
-    NormalValue: 0
+    NormalValue: 1
     SOValue: {fileID: 0}
     UseNormal: 1
   FadeTime:
     NormalValue: 1
     SOValue: {fileID: 0}
     UseNormal: 1
-  FadeColor: {r: 0, g: 0, b: 0, a: 1}
+  FadeColor: {r: 1, g: 1, b: 1, a: 0}
   TransitionBackground: {fileID: 0}
+  _asyncLoadPriority: 2
   SceneLoaded_Name:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000, guid: c5d58519620b7eb4f8c7a7f41843a596, type: 2}
-        m_MethodName: set_Value
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: f3993bc341f196547930c37e25588b7d, type: 2}
-        m_MethodName: set_TimeScale
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 1
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: 28bcddb07fb768c4e8f6344c81892524, type: 2}
-        m_MethodName: OnSceneChange
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: ScriptableObjectFramework.Events.UnityEvents.StringUnityEvent, Assembly-CSharp,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   SceneLoaded_Index:
