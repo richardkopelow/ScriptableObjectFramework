@@ -41,5 +41,10 @@ namespace ScriptableObjectFramework.Variables
         {
             Value /= b;
         }
+
+        public void SetValue(IntVariable value)
+        {
+            Value = value;
+        }
     }
 }
