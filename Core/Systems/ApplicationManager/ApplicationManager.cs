@@ -1,12 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace ScriptableObjectFramework.Systems.ApplicationManager
 {
     [CreateAssetMenu(fileName = "NewApplicationManager", menuName = "Scriptable Objects/Systems/ApplicationManager")]
     public class ApplicationManager : ScriptableObject
     {
+        public UnityEvent OnApplicationWantsToQuit;
+        public UnityEvent OnApplicationQuitting;
+
         public float TimeScale
         {
             get
@@ -41,6 +45,23 @@ namespace ScriptableObjectFramework.Systems.ApplicationManager
             {
                 Cursor.lockState = value;
             }
+        }
+
+        private void OnEnable()
+        {
+            Application.wantsToQuit += Application_wantsToQuit;
+            Application.quitting += Application_quitting;
+        }
+
+        private bool Application_wantsToQuit()
+        {
+            OnApplicationWantsToQuit.Invoke();
+            return false;
+        }
+
+        private void Application_quitting()
+        {
+            OnApplicationQuitting.Invoke();
         }
 
         public void Quit()
