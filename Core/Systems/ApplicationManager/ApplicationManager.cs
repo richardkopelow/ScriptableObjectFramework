@@ -56,7 +56,7 @@ namespace ScriptableObjectFramework.Systems.ApplicationManager
         private bool Application_wantsToQuit()
         {
             OnApplicationWantsToQuit.Invoke();
-            return false;
+            return true;
         }
 
         private void Application_quitting()
