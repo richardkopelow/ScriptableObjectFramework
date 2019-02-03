@@ -20,6 +20,7 @@ public class ScriptedAudioSource : MonoBehaviour
     {
         trans = GetComponent<Transform>();
         audioSource = GetComponent<AudioSource>();
+        DontDestroyOnLoad(gameObject);
     }
 
     public void Play(AudioAsset audio)

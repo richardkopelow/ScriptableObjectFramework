@@ -51,7 +51,7 @@ namespace ScriptableObjectFramework.Conditions
                 }
                 else
                 {
-                    currentState = ComparableComparison.LessOrEqualTo | ComparableComparison.NotEqualTo;
+                    currentState = ComparableComparison.LessThan | ComparableComparison.NotEqualTo;
                 }
             }
 
